@@ -14,6 +14,7 @@ body{
         hsl(237, 49%, 15%));
     font-weight: 700;
     min-height: 100vh;
+    min-width: 100vw;
 }
 
 .score-container{
@@ -21,7 +22,7 @@ body{
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
-    margin: 5% 20% 5% 20%;
+    margin: 5% 20% 0% 20%;
 }
 
 .game{
@@ -51,17 +52,23 @@ body{
 }
 
 .play{
-    min-height: 300px;
     background-repeat: no-repeat;
+    background-position:50% 80%;
     background-image: url('./images/bg-triangle.svg');
-    background-position: center;
-    margin: 0% 20% 0% 20%;
+    margin: 1% 20% 0% 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "paper scissor"
+    "rock rock";
+    justify-items: center;
+    align-items: center;
 }
 
 .btn-container{
    background-color: white;
-   width: 100px;
-   height: 100px;
+   width: 150px;
+   height: 150px;
    border-radius: 50%;
    display: inline-flex;
    align-items: center;
@@ -73,17 +80,23 @@ body{
     background-image: linear-gradient(
         hsl(39, 89%, 49%)
         ,hsl(40, 84%, 53%));
+    grid-area: scissor;
+    margin-right: 30%;
 }
 .btn-paper{
     background-image: linear-gradient(
         hsl(230, 89%, 62%)
        ,hsl(230, 89%, 65%));
+    grid-area: paper;
+    position: absolute;
+    margin-left: 15%;
 }
 
 .btn-rock{
     background-image: linear-gradient(
         hsl(349, 71%, 52%)
         ,hsl(349, 70%, 56%));
+        grid-area: rock;
 }
 
 .btn{
@@ -92,6 +105,6 @@ body{
     justify-content: center;
     display: inline-flex;
     border-radius: 50%;
-    padding: 15px;
+    padding: 25px;
     box-shadow: inset 0 -6px rgba(0,0,0,0.3);
 }
