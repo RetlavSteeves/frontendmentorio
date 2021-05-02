@@ -1,4 +1,5 @@
 const playContainer = document.querySelector('.play');
+const played = document.querySelector('.played');
 let choise = '';
 
 playContainer.addEventListener('click', (event)=>{
@@ -7,11 +8,12 @@ playContainer.addEventListener('click', (event)=>{
         if(element.id !== undefined && element.id !== '')
            choise = element.id;
     });
-    playContainer.innerHTML = '';
-    addChoise(choise) 
+    if(choise !== '')
+        addChoise(choise) 
 })
 
 function addChoise(choise){
+    playContainer.innerHTML = '';
     let button = document.createElement('button');
     button.setAttribute('id',choise)
     button.classList.add(`btn-${choise}`,'btn');
@@ -21,5 +23,5 @@ function addChoise(choise){
     img.setAttribute('src',`./images/icon-${choise}.svg`)
     p.appendChild(img);
     button.appendChild(p);
-    playContainer.append(button)
+    played.append(button)
 }
